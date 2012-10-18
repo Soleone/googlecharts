@@ -510,7 +510,8 @@ class Gchart
         max = axis_range.compact.max
         step = nil
       end
-      [index, (min_value || min || 0), (max_value || max), step].compact.join(',')
+      range = [index, (min_value || min || 0), (max_value || max), step].compact.join(',')
+      range << ',' unless range[-1,1] == ','
     end.compact.join("|")
   end
 
